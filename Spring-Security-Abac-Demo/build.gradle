@@ -1,0 +1,43 @@
+buildscript {
+	ext {
+		springBootVersion = '2.1.0.BUILD-SNAPSHOT'
+	}
+	repositories {
+		mavenCentral()
+		maven { url "https://repo.spring.io/snapshot" }
+		maven { url "https://repo.spring.io/milestone" }
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.spring.security.demo'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+	maven { url "https://repo.spring.io/snapshot" }
+	maven { url "https://repo.spring.io/milestone" }
+}
+
+dependencies {
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-security
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '2.0.3.RELEASE'
+
+	// https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-oauth2
+	compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-oauth2', version: '2.0.0.RELEASE'
+
+	compile('org.springframework.boot:spring-boot-starter-web:2.0.3.RELEASE')
+
+	compile group: 'org.aspectj', name: 'aspectjweaver', version:'1.8.9'
+	compile group: 'com.google.code.gson', name: 'gson', version: properties.'2.5'
+	compileOnly "org.projectlombok:lombok:1.16.18"
+
+	compile "org.slf4j:slf4j-api:1.7.22"
+}

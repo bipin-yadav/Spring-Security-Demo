@@ -1,0 +1,11 @@
+auth:
+  configurations:
+    rules:
+      - name: policy rule1
+        description: desc
+        target: "subject.userId == '1'"
+        condition: "{'user1','user2'}.contains(resource.api)"
+      - name: rule2
+        description: desc
+        target: "subject.clientId == '2'"
+        condition: "{'user10','user20'}.contains(resource.api)"

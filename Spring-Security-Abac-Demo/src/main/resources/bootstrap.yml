@@ -1,0 +1,5 @@
+server:
+  port: 8037
+
+security.basic.enabled: false
+management.security.enabled: false
